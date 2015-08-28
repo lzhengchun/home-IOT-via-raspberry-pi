@@ -16,13 +16,17 @@ This toy project let you install a temperature and humidity monitoring system in
 
 4. install Wiring Pi (http://wiringpi.com), this library lets you access to the GPIO of RPi easily.
 
-5. fill in your database information in *dht11_to_mysql.c* and compile the driver (dht11_to_mysql.c) with *gcc -Wall -o dht11_to_mysql dht11_to_mysql.c -lwiringPi*
+5. fill in your database information in *dht11_to_mysql.c* and compile the driver (dht11_to_mysql.c) with *gcc -Wall -o dht11_to_mysql dht11_to_mysql.c -lwiringPi*. the application should read temperature and humidity once measured by DHT11 and store them in your database. Since it only read once, you should creat a regular task in order to measure in a given time interval, one of an easy solution will be shown in the next step.
 
-6. set up a regular task via Crontab
+6. set up a regular task via Crontab.
 
 7. fill in your database information in file *get_data_from_db.php* (in web folder)
 
-8. copy all files in web folder to your www folder (or sub folder of your web server).
+8. copy all files in web folder to your www folder (or sub folder of your web server). This part use a highcharts library (http://www.highcharts.com) to visulize your data. 
+
+# have more fun
+
+the data are stored in your database, you can do many funny things with this data, for example, check your room temperature and humidity via whatsapp (I did these via Chinese wechat, when I send an command to my subscripte account, current temp. or humity will be sent back).
 
 a demo: http://zliu.info:8080/home_status/24hours.html
 
