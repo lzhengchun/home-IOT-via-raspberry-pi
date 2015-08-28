@@ -24,3 +24,6 @@ This toy project let you install a temperature and humidity monitoring system in
 
 8. copy all files in web folder to your www folder (or sub folder of your web server).
 
+a demo: http://zliu.info:8080/home_status/24hours.html
+
+My system is running since August 1st, 2014. temperature and humidity are monitoring every minute.
