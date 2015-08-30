@@ -1,3 +1,12 @@
+/*
+ *  dht11_to_mysql.c
+ *
+ *
+ *  dht11_to_mysql.c contains the code that read measured data from dht11, 
+ *  data process (sensor protocol) and insert read value to database table 
+ *  
+ *  compile: gcc -Wall -o dht11_to_mysql dht11_to_mysql.c -lwiringPi `mysql_config --cflags --libs`
+ */
 #include <my_global.h>
 #include <mysql.h>
 #include <stdio.h>
@@ -137,7 +146,8 @@ return: 1 operate succefully, 0 failed to read
 int insert_ht_into_db(MYSQL *con, float humidity, float temperature)
 {
     char sql_str[200] = {"\0"};
-    snprintf(sql_str, sizeof(sql_str), "insert into humidity_and_temperature values(now(), %f, %f);", humidity, temperature);
+    snprintf(sql_str, sizeof(sql_str), "insert into humidity_and_temperature values(now(), %f, %f);", 
+    humidity, temperature);
     if(mysql_query(con, sql_str))
     {
         mysql_close(con);
