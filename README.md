@@ -16,7 +16,7 @@ This toy project let you install a temperature and humidity monitoring system in
 
 4. install Wiring Pi (http://wiringpi.com), this library lets you access to the GPIO of RPi easily.
 
-5. fill in your database information in *dht11_to_mysql.c* and compile the driver (dht11_to_mysql.c) with *gcc -Wall -o dht11_to_mysql dht11_to_mysql.c -lwiringPi*. the application should read temperature and humidity once measured by DHT11 and store them in your database. Since it only read once, you should creat a regular task in order to measure in a given time interval, one of an easy solution will be shown in the next step.
+5. fill in your database information in *dht11_to_mysql.c* and compile the driver (dht11_to_mysql.c) with * gcc -Wall -o dht11_to_mysql dht11_to_mysql.c -lwiringPi `mysql_config --cflags --libs`*. the application should read temperature and humidity once measured by DHT11 and store them in your database. Since it only read once, you should creat a regular task in order to measure in a given time interval, one of an easy solution will be shown in the next step.
 
 6. set up a regular task via Crontab. (e.g.: run sudo crontab -e and add " * * * * * echo `date +\%Y\%m\%d\%H\%M\%S`,`/home/pi/home_therm/dht11/dht11_to_mysql` >> /home/pi/home_therm/dht11/temp.log " to the end of file(quote not included) will create a regular task with interval of one minute (asterisk stands for any minute))
 
