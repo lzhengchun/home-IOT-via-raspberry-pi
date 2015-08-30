@@ -12,7 +12,17 @@ function name: read_dht11
 
 description: read mesured temperature and humidity from DHT11 sensor
              via 1-wire bus
+             The output data from dht11 contains 40-bits, explain as follows:
+             |--------+--------+--------+--------+--------|
+             |    Humidity     |   temperature   |checksum|
+             |--------+--------+--------+--------+--------|
+             |   int  |decimal |   int  | decimal|        |
+             |--------+--------+--------+--------+ 8bits  |
+             |  8bits |  8bits |  8bits |  8bits |        |
+             |--------+--------+--------+--------+--------|
 
+            reading trig timing sequence: same as 1-wire bus 
+            (redirect to https://en.wikipedia.org/wiki/1-Wire)
 parameters: 
             *humidity: pointer of humidity 
             *temperature: temperature for output
