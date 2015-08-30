@@ -4,7 +4,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <wiringPi.h>
-
+#include <stdint.h>
+#define MAX_TIME 85
+#define DHT11PIN 7
+#define ATTEMPTS 5
 //extern int read_dht11(float *humidity, float *temperature);
 /*
 *********************************************************************
@@ -21,8 +24,11 @@ description: read mesured temperature and humidity from DHT11 sensor
              |  8bits |  8bits |  8bits |  8bits |        |
              |--------+--------+--------+--------+--------|
 
-            reading trig timing sequence: same as 1-wire bus 
+            reading trig timing sequence: same as 1-wire bus, bit read has been
+            realized in wiringpi library 
             (redirect to https://en.wikipedia.org/wiki/1-Wire)
+
+
 parameters: 
             *humidity: pointer of humidity 
             *temperature: temperature for output
@@ -87,7 +93,7 @@ int read_dht11(float *humidity, float *temperature)
     {
         *humidity = (float)dht11_val[0];
         *temperature = (float)dht11_val[2];
-        //printf("%d.%d,%d.%d\n",dht11_val[0],dht11_val[1],dht11_val[2],dht11_val[3]);
+        printf("%d.%d,%d.%d\n",dht11_val[0],dht11_val[1],dht11_val[2],dht11_val[3]);
         return 1;
     }
     else
