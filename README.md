@@ -3,7 +3,7 @@
 This toy project let you install a temperature and humidity monitoring system in your room and visualize them in you web browser so as to check your room status anywhere via browser. A raspberry Pi and DHT11 sensor (or any other sensor with corresponding driver) are required.
 
 # requiremnts
-1. DHT11, I bought from aliexpress.com with less than two Euros, free shipping.
+1. DHT11, I bought from www.aliexpress.com with less than two Euros, free shipping (you probably need to wait for one month or more).
 
 2. Raspberry Pi, I am using a Raspberry Pi 1 Model B, you can use any model but you should change the IO configuration in the driver code.
 
@@ -20,9 +20,9 @@ This toy project let you install a temperature and humidity monitoring system in
 
 6. set up a regular task via Crontab. (e.g.: run sudo crontab -e and add " * * * * * echo `date +\%Y\%m\%d\%H\%M\%S`,`/home/pi/home_therm/dht11/dht11_to_mysql` >> /home/pi/home_therm/dht11/temp.log " to the end of file(quote not included) will create a regular task with interval of one minute (asterisk stands for any minute))
 
-7. fill in your database information in file *get_data_from_db.php* (in web folder)
+7. fill in your database information in file *get_data_from_db.php* (in web folder, include username, password and database name).
 
-8. copy all files in web folder to your www folder (or sub folder of your web server). This part use a highcharts library (http://www.highcharts.com) to visulize your data. 
+8. copy all files in web folder to your www folder (or sub folder of your web server). This part uses highcharts library (http://www.highcharts.com) to visulize your data. 
 
 # have more fun
 
